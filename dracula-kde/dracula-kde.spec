@@ -1,7 +1,7 @@
 Name:           dracula-kde
 Version:        4.0.0
-Release:        0
-Summary:        Dark theme for GTK and more
+Release:        1
+Summary:        Dark theme for KDE
 
 License:        GPL-3.0-only
 URL:            https://github.com/dracula/gtk
@@ -9,37 +9,12 @@ Source0:        %url/archive/refs/tags/v%{version}.tar.gz
 
 BuildArch:      noarch
 
-Recommends:     %{name}-kvantum
-Recommends:     %{name}-sddm
-
 
 %description
-The kde parts of dracula GTK port
-
-
-%package kvantum
-Summary:    Dark theme for kvantum
-License:    GPL-3.0-only
-BuildArch:  noarch
-Requires:   kvantum
-
-%description kvantum
-Dracula theme for kvantum
-
-
-%package sddm
-Summary:    Dark theme for sddm
-License:    GPL-3.0-only
-BuildArch:  noarch
-Requires:   sddm
-
-%description sddm
-Dracula theme for sddm
+The kde parts of dracula GTK port, including kvantum and sddm
 
 
 %prep
-#mv gtk-%{version} %{name}-%{version}
-#cd gtk-%{version}
 
 %setup -n gtk-%{version}
 
@@ -63,19 +38,12 @@ cp -a kde/kvantum %{buildroot}/usr/share/Kvantum/
 %{_datadir}/plasma/
 %{_datadir}/icons/
 %{_datadir}/aurorae/
-
-
-%files kvantum
-%license LICENSE
-%doc README.md
 %{_datadir}/Kvantum/
-
-
-%files sddm
-%license LICENSE
 %{_datadir}/sddm/themes/Dracula/
 
 
 %changelog
+* Fri Jun 09 2023 execowl <account.fedoraproject.org/user/execowl>
+- Combine everything in one package
 * Thu Jun 08 2023 execowl <account.fedoraproject.org/user/execowl>
 - Initial release
