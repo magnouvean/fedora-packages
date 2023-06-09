@@ -16,7 +16,7 @@ The kde parts of dracula GTK port
 
 %prep
 
-#%setup -n Dracula
+%setup -c -q
 
 %build
 
